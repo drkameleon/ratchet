@@ -58,6 +58,13 @@ module.exports = function(grunt) {
           'js/toggles.js'
         ],
         dest: '<%= meta.distPath %>js/<%= pkg.name %>.js'
+      },
+      fontawesome: {
+        src: [
+          '<%= meta.distPath %>css/ratchet.min.css',
+          '<%= meta.distPath %>css/font-awesome.min.css'
+        ],
+        dest: '<%= meta.distPath %>css/ims.min.css'
       }
     },
 
@@ -70,6 +77,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
+          '<%= meta.distPath %>css/font-awesome.css' : 'sass/font-awesome.scss',
           '<%= meta.distPath %>css/<%= pkg.name %>.css': 'sass/ratchet.scss',
           '<%= meta.distPath %>css/<%= pkg.name %>-theme-ios.css': 'sass/theme-ios.scss',
           '<%= meta.distPath %>css/<%= pkg.name %>-theme-android.css': 'sass/theme-android.scss',
@@ -116,6 +124,10 @@ module.exports = function(grunt) {
       options: {
         banner: '', // set to empty; see bellow
         keepSpecialComments: '*' // set to '*' because we already add the banner in sass
+      },
+      fontawesome: {
+        src: '<%= meta.distPath %>css/font-awesome.css',
+        dest: '<%= meta.distPath %>css/font-awesome.min.css',
       },
       ratchet: {
         src: '<%= meta.distPath %>css/<%= pkg.name %>.css',
@@ -204,6 +216,7 @@ module.exports = function(grunt) {
         csslintrc: 'sass/.csslintrc'
       },
       src: [
+        '<%= meta.distPath %>/css/font-awesome.css',
         '<%= meta.distPath %>/css/<%= pkg.name %>.css',
         '<%= meta.distPath %>/css/<%= pkg.name %>-theme-android.css',
         '<%= meta.distPath %>/css/<%= pkg.name %>-theme-ios.css'
